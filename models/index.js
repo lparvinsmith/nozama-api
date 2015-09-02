@@ -1,15 +1,17 @@
 'use strict';
 
 var Sequelize = require('sequelize');
-if (process.env.HEROKU_POSTGRESQL) {
+if (process.env.DATABASE_URL) {
+  var match = process.env.DATABASE_URL.match(/postgres:\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/);
   // the application is executed on Heroku ... use the postgres database
-  var sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL, {
+  var sequelize = new Sequelize(match[5], match[1], match[2], {
     dialect:  'postgres',
     protocol: 'postgres',
     port:     match[4],
     host:     match[3],
     logging:  true //false
-  })
+  });
+
 } else {
   var sequelize = new Sequelize(process.env.SQL_DB,
     process.env.SQL_USER,
