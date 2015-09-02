@@ -35,7 +35,7 @@ models.Profile = sequelize.import('./profile');
 // models.Cart = require('./cart')(mongoose);
 models.Order = sequelize.import('./order');
 models.Product = sequelize.import('./product');
-// models.LineItem = sequelize.import('./lineitem');
+models.LineItem = sequelize.import('./lineItem');
 
 
 // kept in case we want to use associate method to connect tables
