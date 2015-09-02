@@ -1,19 +1,30 @@
 'use strict';
 
 var Sequelize = require('sequelize');
+if (process.env.HEROKU_POSTGRESQL) {
+  // the application is executed on Heroku ... use the postgres database
+  var sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL, {
+    dialect:  'postgres',
+    protocol: 'postgres',
+    port:     match[4],
+    host:     match[3],
+    logging:  true //false
+  })
+} else {
+  var sequelize = new Sequelize(process.env.SQL_DB,
+    process.env.SQL_USER,
+    process.env.SQL_PASS,
 
-var sequelize = new Sequelize(process.env.SQL_DB,
-  process.env.SQL_USER,
-  process.env.SQL_PASS,
-
-  {
-    host: process.env.SQL_HOST,
-    port: process.env.SQL_PORT,
-    dialect: 'postgres'
-});
+    {
+      host: process.env.SQL_HOST,
+      port: process.env.SQL_PORT,
+      dialect: 'postgres'
+    }
+  );
+};
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/nozama_mongo');
+mongoose.connect(process.env.MONGOLAB_URI);
 
 var models = {};
 

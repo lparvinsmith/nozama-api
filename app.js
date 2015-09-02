@@ -47,7 +47,7 @@ app.use(session({
   // saveUninitialized : false, // don't create a session until something is stored
       // commented above out because we prob want sessions without user data
   store : new MongoStore({
-    url : "mongodb://localhost/nozama/sessions" // will we move this off localhost later?
+    url : (process.env.MONGOLAB_URI + "/sessions") // will we move this off localhost later?
   }),
   cookie : {
     maxAge : 300000 // 5 minutes
