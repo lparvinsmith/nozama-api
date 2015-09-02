@@ -8,7 +8,10 @@ var cors = require('cors');
 var session = require('express-session');
 var uuid = require('uuid');
 var MongoStore = require('connect-mongo')(session);
-process.env.SESSION_SECRET || require('dotenv').load();
+if (process.env.STAGE != "PRODUCTION") {
+  process.env.SESSION_SECRET || require('dotenv').load();
+}
+
 var passport = require('./lib/passport');
 
 var routes = require('./routes/index');
