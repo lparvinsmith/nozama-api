@@ -1,7 +1,7 @@
 # nozama-api
-Back end for e-commerce site Nozama.
+Back end for e-commerce site Nozama, the one-stop online shop for all your biking needs.
 
-WDI Group Project, created by [Lara Parvinsmith](https://github.com/lparvinsmith), [Kristen Kehlenbeck](https://github.com/kristenlk), [Greg Holmes](https://github.com/GHolmes04) and [Joe Levinger](https://github.com/jlevinger).
+This app began as a group project for GA Web Development Immersive. The original back-end app is available in the following repo: https://github.com/Group-404/nozama-api
 
 This app was built with Node.js, using Express as a framework for routes and controllers, and Passport for authentication. See package.json for full list of middleware used.
 
