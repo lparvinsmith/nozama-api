@@ -29,7 +29,7 @@ app.set('view engine', 'hbs');
 
 app.use(cors({
  credentials: true,
- origin: 'http://localhost:5000',
+ origin: 'http://lparvinsmith.github.io',
  allowedHeaders: ['Cookie', 'Content-Type']
 }));
 
@@ -50,7 +50,7 @@ app.use(session({
   // saveUninitialized : false, // don't create a session until something is stored
       // commented above out because we prob want sessions without user data
   store : new MongoStore({
-    url : (process.env.MONGOLAB_URI + "/sessions") // will we move this off localhost later?
+    url : (process.env.MONGOLAB_URI + "/sessions")
   }),
   cookie : {
     maxAge : 300000 // 5 minutes
