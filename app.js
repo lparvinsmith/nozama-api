@@ -29,7 +29,7 @@ app.set('view engine', 'hbs');
 
 app.use(cors({
  credentials: true,
- origin: 'http://lparvinsmith.github.io',
+ origin: 'http://lara-parvinsmith.com',
  allowedHeaders: ['Cookie', 'Content-Type']
 }));
 
